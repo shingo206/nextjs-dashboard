@@ -1,11 +1,14 @@
 import {lusitana} from '@/app/ui/fonts';
 import {CreateInvoice} from '@/app/ui/invoices/buttons';
 import Search from '@/app/ui/search';
+import {Suspense} from "react";
+import Table from "@/app/ui/invoices/table";
+import {InvoicesTableSkeleton} from "@/app/ui/skeletons";
 
-type Props = Promise<{
-    query?: string;
-    page?: string;
-}>;
+type Props = {
+    searchParams?: Promise<{ query?: string; page?: string; }>;
+};
+
 const Page = async (props: Props) => {
     const searchParams = await props.searchParams;
     const query = searchParams?.query || '';
