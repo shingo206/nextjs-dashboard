@@ -8,6 +8,7 @@ type Props = {
     query: string;
     currentPage: number;
 };
+
 const InvoicesTable = async ({query, currentPage}: Props) => {
     const invoices = await fetchFilteredInvoices(query, currentPage);
 
